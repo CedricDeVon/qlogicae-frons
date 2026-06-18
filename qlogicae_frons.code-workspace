@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "qlogicae_frons"
+		},
+		{
+			"path": "temporary"
+		},
+		{
+			"path": ".github"
+		}
+	],
+	"settings": {}
+}
