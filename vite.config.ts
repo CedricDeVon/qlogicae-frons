@@ -1,8 +1,11 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
-import adapter from '@sveltejs/adapter-vercel';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { playwright } from '@vitest/browser-playwright';
+import adapterNode from '@sveltejs/adapter-node';
+import adapterVercel from '@sveltejs/adapter-vercel';
+
+let useNode = process.env.BUILD_TARGET === 'node';
 
 export default defineConfig({
 	plugins: [
@@ -13,9 +16,10 @@ export default defineConfig({
 				runes: ({ filename }) =>
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
-			adapter: adapter()
+			adapter: useNode ? adapterNode() : adapterVercel({ runtime: 'nodejs24.x' })
 		})
 	],
+
 	test: {
 		expect: { requireAssertions: true },
 		projects: [
