@@ -3,12 +3,12 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>Root</title>
 </svelte:head>
 
 <section>
 	<h1>
-		Home
+		Root
 	</h1>
 </section>
 
