@@ -5,18 +5,21 @@ import { playwright } from '@vitest/browser-playwright';
 import adapterNode from '@sveltejs/adapter-node';
 import adapterVercel from '@sveltejs/adapter-vercel';
 
-let useNode = process.env.BUILD_TARGET === 'node';
+const useNode = process.env.BUILD_TARGET === 'node';
 
 export default defineConfig({
 	plugins: [
 		tailwindcss(),
 		sveltekit({
 			compilerOptions: {
-
 				runes: ({ filename }) =>
-					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+					filename.split(/[/\\]/).includes('node_modules')
+						? undefined
+						: true
 			},
-			adapter: useNode ? adapterNode() : adapterVercel({ runtime: 'nodejs24.x' })
+			adapter: useNode
+				? adapterNode()
+				: adapterVercel({ runtime: 'nodejs24.x' })
 		})
 	],
 

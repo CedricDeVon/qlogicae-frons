@@ -1,24 +1,19 @@
 <script lang="ts">
-
+	import { resolve } from '$app/paths';
 </script>
 
 <svelte:head>
-	<title>
-		About
-	</title>
+	<title>About</title>
 </svelte:head>
 
 <section>
-	<h1>
-		About
-	</h1>
+	<h1>About</h1>
 
 	<nav>
-		<a href="/home">Home</a>
-		<a href="/about">About</a>
+		<a href={resolve('/home')}>Home</a>
+		<a href={resolve('/about')}>About</a>
 	</nav>
 </section>
 
 <style>
-
 </style>
