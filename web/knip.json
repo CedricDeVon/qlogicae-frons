@@ -1,0 +1,14 @@
+{
+	"$schema": "https://unpkg.com/knip@latest/schema.json",
+	"entry": [
+		"src/**/*.{js,ts,svelte}",
+		"vitest.bench.config.ts",
+		"vitest.unit.config.ts"
+	],
+	"project": [
+		"src/**/*.{js,ts,svelte,css}",
+		"test/**/*.{js,ts,css}",
+		"*.{js,ts,mjs,cjs,mts,cts,css}"
+	],
+	"ignore": []
+}

@@ -1,6 +1,15 @@
 {
 	"name": "qlogicae-frons",
+	"author": "Vaughn Cedric L. Araneta",
 	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"description": "The Official Portfolio Website of Vaughn Cedric L. Araneta",
+	"keywords": [
+		"qlogicae",
+		"frons"
+	],
+	"license": "MIT",
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
 		"@fontsource/fira-mono": "^5.3.0",
@@ -14,7 +23,9 @@
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^26.6.5",
+		"@types/three": "^0.186.0",
 		"@vitest/browser-playwright": "^5.0.5",
+		"@vitest/coverage-v8": "5.0.5",
 		"brace-expansion": "^5.0.12",
 		"esbuild": "^0.28.2",
 		"eslint": "^10.13.0",
@@ -22,6 +33,7 @@
 		"eslint-plugin-security": "^4.2.0",
 		"eslint-plugin-svelte": "^3.23.1",
 		"globals": "^17.13.0",
+		"knip": "^6.43.0",
 		"nanoid": "^6.0.2",
 		"playwright": "^1.64.1",
 		"postcss": "^8.5.31",
@@ -29,7 +41,6 @@
 		"prettier": "^3.9.10",
 		"prettier-plugin-svelte": "^4.1.1",
 		"prettier-plugin-tailwindcss": "^0.8.1",
-		"semgrep": "^0.0.1",
 		"source-map-js": "^1.2.2",
 		"svelte": "^5.57.2",
 		"svelte-check": "^4.7.7",
@@ -41,19 +52,24 @@
 		"vitest": "^5.0.5",
 		"vitest-browser-svelte": "^3.1.0"
 	},
-	"private": true,
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && npm run test:e2e",
-		"test:e2e": "playwright install && playwright test"
-	},
-	"type": "module"
+		"source:apply-format": "prettier --write .",
+		"source:apply-lint": "eslint . --fix",
+		"source:build-release": "vite build --mode release",
+		"source:build-development": "vite build --mode development",
+		"preview:run-release": "vite preview --mode release",
+		"preview:run-development": "vite preview --mode development",
+		"stage:release": "python3 -m script.v1.cli run-script -t 'bun run source:apply-format' 'bun run source:apply-lint' 'bun run source:build-release' 'bun run preview:run-release'",
+		"test:check-format": "prettier --check .",
+		"test:check-staleness": "knip",
+		"test:check-typescript": "tsc --noEmit",
+		"test:check-lint": "eslint .",
+		"test:run-unit": "vitest run --config vitest.unit.config.ts --coverage",
+		"test:run-e2e": "playwright test --config playwright.config.ts",
+		"demo-1": "python3 -m script.v1.cli --help",
+		"demo-2": "python3 -m script.v1.cli run-script --help",
+		"svelte-kit:prepare": "svelte-kit sync",
+		"svelte-kit:check": "svelte-check --tsconfig ./tsconfig.json",
+		"svelte-kit:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+	}
 }

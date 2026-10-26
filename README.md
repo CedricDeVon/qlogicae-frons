@@ -9,7 +9,7 @@
 
 <div style="text-align: center;">
   <h1>Frons</h1>
-  <p style="font-style: italic;">The official portfolio website of Vaughn Cedric L. Araneta</p>
+  <p style="font-style: italic;">The Official Portfolio Website of Vaughn Cedric L. Araneta</p>
   <div style="margin: 32px 64px;">
 
 <!-- Static Markdown Badges -->
