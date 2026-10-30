@@ -1,7 +1,7 @@
 </br>
 
 <div style="width: 100%; display: flex; justify-content: center;">
-    <image alt="qlogicae logo" src="./project/asset/qlogicae.png" style="width: 100%; height: auto;">
+    <image alt="qlogicae logo" src="./project/asset/qlogicae-preview.png" style="width: 100%; height: auto;">
 </div>
 
 </br>
@@ -9,7 +9,7 @@
 
 <div style="text-align: center;">
   <h1>Frons</h1>
-  <p style="font-style: italic;">The Official Portfolio Website of Vaughn Cedric L. Araneta</p>
+  <p style="font-style: italic;">Vaughn Cedric L. Araneta's official portfolio website</p>
   <div style="margin: 32px 64px;">
 
 <!-- Static Markdown Badges -->
